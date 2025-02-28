@@ -279,6 +279,22 @@
         "description_width": 80,
         "description_size": "small"
       }
+    },
+    "content_section_VGJA3n": {
+      "type": "content-section",
+      "settings": {
+        "grid_size": "full-width",
+        "pre_title": "Welcome",
+        "pre_title_color": "#000000",
+        "pre_title_size": "h4",
+        "title": "Parts for thousands of machine makes and models",
+        "title_color": "#000000",
+        "title_size": "h2",
+        "description": "<p>Our diverse stock range ensures that you can find the right part quickly, reducing downtime and enhancing productivity.</p>",
+        "description_color": "#000000",
+        "description_width": 80,
+        "description_size": "small"
+      }
     }
   },
   "order": [
@@ -290,6 +306,7 @@
     "content_section_hhjEUH",
     "logo_slider_bbd6QJ",
     "cta_PLcmzM",
-    "content_section_kYdBPY"
+    "content_section_kYdBPY",
+    "content_section_VGJA3n"
   ]
 }
