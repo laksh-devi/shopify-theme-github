@@ -104,6 +104,7 @@
         "info_block_eBfNWt": {
           "type": "info_block",
           "settings": {
+            "image": "shopify://shop_images/OEM_Specification.svg",
             "title": "OEM Specification",
             "description": "On hand support with every order",
             "link": "#"
@@ -112,6 +113,7 @@
         "info_block_9EE7EB": {
           "type": "info_block",
           "settings": {
+            "image": "shopify://shop_images/Warranty.svg",
             "title": "Same Day Shipping",
             "description": "Free and fast across the USA",
             "link": "#"
@@ -120,6 +122,7 @@
         "info_block_ririik": {
           "type": "info_block",
           "settings": {
+            "image": "shopify://shop_images/18px_bag-out-for-delivery_1.svg",
             "title": "12 Month Warranty",
             "description": "Manufacturer assured",
             "link": "#"
@@ -128,6 +131,7 @@
         "info_block_Yx3KAP": {
           "type": "info_block",
           "settings": {
+            "image": "shopify://shop_images/Group_3.svg",
             "title": "Guaranteed Fitment",
             "description": "Step by step fitting guides",
             "link": "#"
@@ -140,7 +144,6 @@
         "info_block_ririik",
         "info_block_Yx3KAP"
       ],
-      "disabled": true,
       "settings": {}
     },
     "collection_grid_6RBC3j": {
@@ -162,7 +165,6 @@
     },
     "content_section_hhjEUH": {
       "type": "content-section",
-      "disabled": true,
       "settings": {
         "grid_size": "half-width",
         "pre_title": "Affordable Excavator Spare Parts Without Quality Compromise",
