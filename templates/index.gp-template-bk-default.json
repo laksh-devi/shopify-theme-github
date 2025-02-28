@@ -1,75 +1,298 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-  "sections": {
-    "image_banner": {
-      "type": "image-banner",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
-          }
-        },
-        "button": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify:\/\/collections\/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "button"
-      ],
-      "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "image_behavior": "none",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
-      }
-    },
-    "featured_collection": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "color_scheme": "scheme-1",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 44,
-        "padding_bottom": 36
-      }
-    }
-  },
   "order": [
     "image_banner",
-    "featured_collection"
-  ]
+    "slideshow_9zVJHH",
+    "find_your_parts_zJDFBx",
+    "info_section_ciKYja",
+    "collection_grid_6RBC3j",
+    "content_section_hhjEUH",
+    "logo_slider_bbd6QJ",
+    "cta_PLcmzM"
+  ],
+  "sections": {
+    "collection_grid_6RBC3j": {
+      "settings": {
+        "card-content-padding": 16,
+        "cards-grid-gap": 10,
+        "desktop-grid-count": 4,
+        "link-color": "#000000",
+        "mobile-grid-count": 1,
+        "tablet-grid-count": 2,
+        "text_align": "left",
+        "title-color": "#000000",
+        "title-margin-bottom": 0,
+        "title-margin-top": 0,
+        "title-size": "h4"
+      },
+      "type": "collection-grid"
+    },
+    "content_section_hhjEUH": {
+      "settings": {
+        "description": "<p>Our diverse stock range ensures that you can find the right part quickly, reducing downtime and enhancing productivity.</p>",
+        "description_color": "#000000",
+        "description_size": "small",
+        "description_width": 80,
+        "grid_size": "half-width",
+        "pre_title": "Affordable Excavator Spare Parts Without Quality Compromise",
+        "pre_title_color": "#000000",
+        "pre_title_size": "h4",
+        "title": "Excavator Machine Parts for Thousands of Makes and Models",
+        "title_color": "#000000",
+        "title_size": "h2"
+      },
+      "type": "content-section"
+    },
+    "cta_PLcmzM": {
+      "block_order": [
+        "button_block_fFLdHH",
+        "button_block_DdGytJ"
+      ],
+      "blocks": {
+        "button_block_DdGytJ": {
+          "settings": {
+            "button-name": "sales@epdparts.com",
+            "link": "mailto:sales@epdparts.com"
+          },
+          "type": "button-block"
+        },
+        "button_block_fFLdHH": {
+          "settings": {
+            "button-name": "+1 (254) 382 1140",
+            "link": "tel:+1 (254) 382 1140"
+          },
+          "type": "button-block"
+        }
+      },
+      "settings": {
+        "description": "Call our helpful sales team today at",
+        "desktop-img": "shopify://shop_images/cta-bg-image-1.png",
+        "mobile-img": "shopify://shop_images/responsive-cta.png",
+        "title": "Didn't find what you need?"
+      },
+      "type": "CTA"
+    },
+    "find_your_parts_zJDFBx": {
+      "settings": {},
+      "type": "find-your-parts"
+    },
+    "image_banner": {
+      "block_order": [
+        "heading",
+        "text_n37YBJ",
+        "button"
+      ],
+      "blocks": {
+        "button": {
+          "settings": {
+            "button_label_1": "Shop now",
+            "button_label_2": "",
+            "button_link_1": "shopify://collections/all",
+            "button_link_2": "",
+            "button_style_secondary_1": false,
+            "button_style_secondary_2": false
+          },
+          "type": "buttons"
+        },
+        "heading": {
+          "settings": {
+            "heading": "Now shipping across the USA!",
+            "heading_size": "hxl"
+          },
+          "type": "heading"
+        },
+        "text_n37YBJ": {
+          "settings": {
+            "text": "With same day dispatch and fast delivery times across the USA, we can get you the parts you need when you need them.",
+            "text_style": "body"
+          },
+          "type": "text"
+        }
+      },
+      "disabled": true,
+      "settings": {
+        "color_scheme": "scheme-3",
+        "desktop_content_alignment": "left",
+        "desktop_content_position": "middle-center",
+        "image": "shopify://shop_images/hero_banner_2x_faa56c0f-bf96-4758-ab48-d49c87b1ccde.jpg",
+        "image_behavior": "none",
+        "image_height": "large",
+        "image_overlay_opacity": 40,
+        "mobile_content_alignment": "center",
+        "show_text_below": false,
+        "show_text_box": false,
+        "stack_images_on_mobile": false
+      },
+      "type": "image-banner"
+    },
+    "info_section_ciKYja": {
+      "block_order": [
+        "info_block_eBfNWt",
+        "info_block_9EE7EB",
+        "info_block_ririik",
+        "info_block_Yx3KAP"
+      ],
+      "blocks": {
+        "info_block_9EE7EB": {
+          "settings": {
+            "description": "Free and fast across the USA",
+            "image": "shopify://shop_images/18px_bag-out-for-delivery_1.svg",
+            "link": "#",
+            "title": "Same Day Shipping"
+          },
+          "type": "info_block"
+        },
+        "info_block_Yx3KAP": {
+          "settings": {
+            "description": "Step by step fitting guides",
+            "image": "shopify://shop_images/Group_3.svg",
+            "link": "#",
+            "title": "Guaranteed Fitment"
+          },
+          "type": "info_block"
+        },
+        "info_block_eBfNWt": {
+          "settings": {
+            "description": "On hand support with every order",
+            "image": "shopify://shop_images/OEM_Specification.svg",
+            "link": "#",
+            "title": "OEM Specification"
+          },
+          "type": "info_block"
+        },
+        "info_block_ririik": {
+          "settings": {
+            "description": "Manufacturer assured",
+            "image": "shopify://shop_images/Warranty.svg",
+            "link": "#",
+            "title": "12 Month Warranty"
+          },
+          "type": "info_block"
+        }
+      },
+      "settings": {},
+      "type": "Info-section"
+    },
+    "logo_slider_bbd6QJ": {
+      "block_order": [
+        "slide_qWxhpH",
+        "slide_nCjRxa",
+        "slide_hcfrnc",
+        "slide_akraiJ",
+        "slide_j3KUPF",
+        "slide_YTxHPK",
+        "slide_k9MMmz",
+        "slide_X9qz7M",
+        "slide_xJNFkw"
+      ],
+      "blocks": {
+        "slide_X9qz7M": {
+          "settings": {
+            "slider-image": "shopify://shop_images/Logo_Containter-4.webp"
+          },
+          "type": "slide"
+        },
+        "slide_YTxHPK": {
+          "settings": {
+            "slider-image": "shopify://shop_images/bobcat_92c8b6df-da3a-4f75-a928-3263057dd0d0.webp"
+          },
+          "type": "slide"
+        },
+        "slide_akraiJ": {
+          "settings": {
+            "slider-image": "shopify://shop_images/bobcat.webp"
+          },
+          "type": "slide"
+        },
+        "slide_hcfrnc": {
+          "settings": {
+            "slider-image": "shopify://shop_images/Logo_Containter-5.webp"
+          },
+          "type": "slide"
+        },
+        "slide_j3KUPF": {
+          "settings": {
+            "slider-image": "shopify://shop_images/case.webp"
+          },
+          "type": "slide"
+        },
+        "slide_k9MMmz": {
+          "settings": {
+            "slider-image": "shopify://shop_images/hitachi__2.webp"
+          },
+          "type": "slide"
+        },
+        "slide_nCjRxa": {
+          "settings": {
+            "slider-image": "shopify://shop_images/Logo_Containter-3.webp"
+          },
+          "type": "slide"
+        },
+        "slide_qWxhpH": {
+          "settings": {
+            "slider-image": "shopify://shop_images/jcb-new.webp"
+          },
+          "type": "slide"
+        },
+        "slide_xJNFkw": {
+          "settings": {
+            "slider-image": "shopify://shop_images/holland.webp"
+          },
+          "type": "slide"
+        }
+      },
+      "settings": {
+        "img_bg_color": "#dad9d6",
+        "slide-img-height": 100,
+        "slide-img-width": 200,
+        "slide-speed": 60
+      },
+      "type": "logo-slider"
+    },
+    "slideshow_9zVJHH": {
+      "block_order": [
+        "slide_rYMBUK"
+      ],
+      "blocks": {
+        "slide_rYMBUK": {
+          "settings": {
+            "box_align": "middle-left",
+            "button_label": "Shop now",
+            "button_style_secondary": false,
+            "color_scheme": "scheme-c3970823-f9bb-4f11-9014-188a932506c9",
+            "heading": "Excavator Parts & Wear Parts Shipping Across the USA",
+            "heading_size": "hxl",
+            "image": "shopify://shop_images/hero_banner_2x_faa56c0f-bf96-4758-ab48-d49c87b1ccde.jpg",
+            "image_overlay_opacity": 0,
+            "link": "#",
+            "responsiveImage": "shopify://shop_images/Hero_Slider_Mobile.png",
+            "show_text_box": true,
+            "subheading": "With same day dispatch and fast delivery times across the USA, we can get you the parts you need when you need them.",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center"
+          },
+          "type": "slide"
+        }
+      },
+      "settings": {
+        "accessibility_info": "Slideshow about our brand",
+        "auto_rotate": false,
+        "change_slides_speed": 3,
+        "image_behavior": "none",
+        "layout": "full_bleed",
+        "show_text_below": false,
+        "slide_height": "large",
+        "slider_visual": "dots"
+      },
+      "type": "slideshow"
+    }
+  }
 }
