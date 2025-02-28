@@ -84,6 +84,7 @@
       "block_order": [
         "slide_rYMBUK"
       ],
+      "disabled": true,
       "settings": {
         "layout": "full_bleed",
         "slide_height": "large",
@@ -97,6 +98,7 @@
     },
     "find_your_parts_zJDFBx": {
       "type": "find-your-parts",
+      "disabled": true,
       "settings": {}
     },
     "info_section_ciKYja": {
@@ -145,10 +147,12 @@
         "info_block_ririik",
         "info_block_Yx3KAP"
       ],
+      "disabled": true,
       "settings": {}
     },
     "collection_grid_6RBC3j": {
       "type": "collection-grid",
+      "disabled": true,
       "settings": {
         "desktop-grid-count": 4,
         "tablet-grid-count": 2,
@@ -165,6 +169,7 @@
     },
     "content_section_hhjEUH": {
       "type": "content-section",
+      "disabled": true,
       "settings": {
         "grid_size": "half-width",
         "pre_title": "Affordable Excavator Spare Parts Without Quality Compromise",
@@ -248,6 +253,7 @@
         "slide_X9qz7M",
         "slide_xJNFkw"
       ],
+      "disabled": true,
       "settings": {
         "slide-speed": 60,
         "slide-img-width": 200,
@@ -277,6 +283,7 @@
         "button_block_fFLdHH",
         "button_block_DdGytJ"
       ],
+      "disabled": true,
       "settings": {
         "desktop-img": "shopify://shop_images/cta-bg-image-1.png",
         "mobile-img": "shopify://shop_images/responsive-cta.png",
