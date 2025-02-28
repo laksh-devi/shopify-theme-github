@@ -17,7 +17,7 @@
         "image_FwEUG7": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/EPD_Logo.svg",
+            "image": "shopify://shop_images/EPD_Logo_1.svg",
             "image_width": 270,
             "alignment": ""
           }

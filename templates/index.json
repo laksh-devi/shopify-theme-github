@@ -45,7 +45,6 @@
       ],
       "disabled": true,
       "settings": {
-        "image": "shopify://shop_images/hero_banner_2x_faa56c0f-bf96-4758-ab48-d49c87b1ccde.jpg",
         "image_overlay_opacity": 40,
         "image_height": "large",
         "desktop_content_position": "middle-center",
@@ -64,8 +63,6 @@
         "slide_rYMBUK": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/hero_banner_2x_faa56c0f-bf96-4758-ab48-d49c87b1ccde.jpg",
-            "responsiveImage": "shopify://shop_images/Hero_Slider_Mobile.png",
             "heading": "Excavator Parts & Wear Parts Shipping Across the France",
             "heading_size": "hxl",
             "subheading": "With same day dispatch and fast delivery times across the USA, we can get you the parts you need when you need them.",
@@ -107,7 +104,6 @@
         "info_block_eBfNWt": {
           "type": "info_block",
           "settings": {
-            "image": "shopify://shop_images/OEM_Specification.svg",
             "title": "OEM Specification",
             "description": "On hand support with every order",
             "link": "#"
@@ -116,7 +112,6 @@
         "info_block_9EE7EB": {
           "type": "info_block",
           "settings": {
-            "image": "shopify://shop_images/18px_bag-out-for-delivery_1.svg",
             "title": "Same Day Shipping",
             "description": "Free and fast across the USA",
             "link": "#"
@@ -125,7 +120,6 @@
         "info_block_ririik": {
           "type": "info_block",
           "settings": {
-            "image": "shopify://shop_images/Warranty.svg",
             "title": "12 Month Warranty",
             "description": "Manufacturer assured",
             "link": "#"
@@ -134,7 +128,6 @@
         "info_block_Yx3KAP": {
           "type": "info_block",
           "settings": {
-            "image": "shopify://shop_images/Group_3.svg",
             "title": "Guaranteed Fitment",
             "description": "Step by step fitting guides",
             "link": "#"
@@ -169,6 +162,7 @@
     },
     "content_section_hhjEUH": {
       "type": "content-section",
+      "disabled": true,
       "settings": {
         "grid_size": "half-width",
         "pre_title": "Affordable Excavator Spare Parts Without Quality Compromise",
@@ -177,7 +171,7 @@
         "title": "Excavator Machine Parts for Thousands of Makes and Models",
         "title_color": "#000000",
         "title_size": "h2",
-        "description": "<p>Our diverse stock range ensures that you can find the right part quickly reducing downtime and enhancing productivity.</p>",
+        "description": "<p>Our diverse stock range ensures that you can find the right part quickly, reducing downtime and enhancing productivity.</p>",
         "description_color": "#000000",
         "description_width": 80,
         "description_size": "small"
@@ -188,57 +182,39 @@
       "blocks": {
         "slide_qWxhpH": {
           "type": "slide",
-          "settings": {
-            "slider-image": "shopify://shop_images/jcb-new.webp"
-          }
+          "settings": {}
         },
         "slide_nCjRxa": {
           "type": "slide",
-          "settings": {
-            "slider-image": "shopify://shop_images/Logo_Containter-3.webp"
-          }
+          "settings": {}
         },
         "slide_hcfrnc": {
           "type": "slide",
-          "settings": {
-            "slider-image": "shopify://shop_images/Logo_Containter-5.webp"
-          }
+          "settings": {}
         },
         "slide_akraiJ": {
           "type": "slide",
-          "settings": {
-            "slider-image": "shopify://shop_images/bobcat.webp"
-          }
+          "settings": {}
         },
         "slide_j3KUPF": {
           "type": "slide",
-          "settings": {
-            "slider-image": "shopify://shop_images/case.webp"
-          }
+          "settings": {}
         },
         "slide_YTxHPK": {
           "type": "slide",
-          "settings": {
-            "slider-image": "shopify://shop_images/bobcat_92c8b6df-da3a-4f75-a928-3263057dd0d0.webp"
-          }
+          "settings": {}
         },
         "slide_k9MMmz": {
           "type": "slide",
-          "settings": {
-            "slider-image": "shopify://shop_images/hitachi__2.webp"
-          }
+          "settings": {}
         },
         "slide_X9qz7M": {
           "type": "slide",
-          "settings": {
-            "slider-image": "shopify://shop_images/Logo_Containter-4.webp"
-          }
+          "settings": {}
         },
         "slide_xJNFkw": {
           "type": "slide",
-          "settings": {
-            "slider-image": "shopify://shop_images/holland.webp"
-          }
+          "settings": {}
         }
       },
       "block_order": [
@@ -284,10 +260,24 @@
       ],
       "disabled": true,
       "settings": {
-        "desktop-img": "shopify://shop_images/cta-bg-image-1.png",
-        "mobile-img": "shopify://shop_images/responsive-cta.png",
         "title": "Didn't find what you need?",
         "description": "Call our helpful sales team today at"
+      }
+    },
+    "content_section_kYdBPY": {
+      "type": "content-section",
+      "settings": {
+        "grid_size": "full-width",
+        "pre_title": "Get the best value without compromising on quality.",
+        "pre_title_color": "#000000",
+        "pre_title_size": "h4",
+        "title": "Parts for thousands of machine makes and models",
+        "title_color": "#000000",
+        "title_size": "h2",
+        "description": "<p>Our diverse stock range ensures that you can find the right part quickly, reducing downtime and enhancing productivity.</p>",
+        "description_color": "#000000",
+        "description_width": 80,
+        "description_size": "small"
       }
     }
   },
@@ -299,6 +289,7 @@
     "collection_grid_6RBC3j",
     "content_section_hhjEUH",
     "logo_slider_bbd6QJ",
-    "cta_PLcmzM"
+    "cta_PLcmzM",
+    "content_section_kYdBPY"
   ]
 }
