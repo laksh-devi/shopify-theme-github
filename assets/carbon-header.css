@@ -1410,6 +1410,7 @@ header .header-menu-container .header-menu-wrapper .main-menu-list-item .collect
   font-size: 14px;
   font-weight: 700;
   line-height: 19.07px;
+  letter-spacing:0;
 }
 
 header .header-main-wrapper a.header__icon svg {
