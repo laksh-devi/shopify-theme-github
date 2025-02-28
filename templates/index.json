@@ -169,7 +169,6 @@
     },
     "content_section_hhjEUH": {
       "type": "content-section",
-      "disabled": true,
       "settings": {
         "grid_size": "half-width",
         "pre_title": "Affordable Excavator Spare Parts Without Quality Compromise",
@@ -178,7 +177,7 @@
         "title": "Excavator Machine Parts for Thousands of Makes and Models",
         "title_color": "#000000",
         "title_size": "h2",
-        "description": "<p>Our diverse stock range ensures that you can find the right part quickly, reducing downtime and enhancing productivity.</p>",
+        "description": "<p>Our diverse stock range ensures that you can find the right part quickly reducing downtime and enhancing productivity.</p>",
         "description_color": "#000000",
         "description_width": 80,
         "description_size": "small"
