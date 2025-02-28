@@ -1,0 +1,131 @@
+{% comment %}
+  Renders a megamenu for the header.
+
+  Usage:
+  {% render 'header-mega-menu' %}
+{% endcomment %}
+      <!-- {% style %}
+      .mega-menu:hover .mega-menu__content {
+          opacity: 1 !important;
+        transform: translateY(0) !important;
+        }
+      {% endstyle %} -->
+
+<nav class="header__inline-menu">
+  <ul class="list-menu list-menu--inline" role="list">
+    {%- for link in section.settings.menu.links -%}
+      <li class="main-menu-list-item">
+        {%- if link.links != blank -%}
+          <header-menu>
+            <details id="Details-HeaderMenu-{{ forloop.index }}" class="mega-menu">
+              <div class="mega-menu-connector"><holder></holder></div>
+              <summary
+                id="HeaderMenu-{{ link.handle }}"
+                class="header__menu-item list-menu__item link focus-inset"
+              >
+                <a href="{{ link.url }}"
+                  aria-label="{{- link.title | escape -}}"
+                  {%- if link.child_active %}
+                    class="header__active-menu-item"
+                  {% endif %}
+                >
+                  {{- link.title | escape -}} 
+                </a>
+                {% render 'icon-caret' %}
+                <!-- {% render 'chevron-down' %} -->
+              </summary>
+              <div
+                id="MegaMenu-Content-{{ forloop.index }}"
+                class="mega-menu__content page-width color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
+                tabindex="-1"
+              >
+               <div class="megamenu-content-wrapper ">
+                 <div class="megamenu-image-wrapper" style="background-image: url({% if link.title == "Rubber Track" %} https://cdn.shopify.com/s/files/1/0669/1310/8137/files/Rubber_Track_Widget.webp?v=1739519616 
+                   {% elsif link.title == "Rubber Pad" %}
+                   https://cdn.shopify.com/s/files/1/0669/1310/8137/files/Rubber_pads.png?v=1739538559
+                   {% elsif link.title == "Track Roller" %}
+                   https://cdn.shopify.com/s/files/1/0669/1310/8137/files/Track_roller.png?v=1739538560
+                   {% elsif link.title == "Carrier Roller" %}
+                   https://cdn.shopify.com/s/files/1/0669/1310/8137/files/carrier-rollers-1.png?v=1739538560
+                   {% elsif link.title == "Sprocket" %}
+                   https://cdn.shopify.com/s/files/1/0669/1310/8137/files/sprockets-1.png?v=1739538560
+                   {% elsif link.title == "Idler" %}
+                   https://cdn.shopify.com/s/files/1/0669/1310/8137/files/idler-1.png?v=1739538560
+                   {% elsif link.title == "Track Adjuster" %}
+                   https://cdn.shopify.com/s/files/1/0669/1310/8137/files/Track_Adjusters.png?v=1739538560
+                   {% elsif link.title == "Hardware" %}
+                   https://cdn.shopify.com/s/files/1/0669/1310/8137/files/media.webp?v=1739538559
+                   {% else %} https://cdn.shopify.com/s/files/1/0669/1310/8137/files/Wear_Parts.png?v=1739538560{% endif %})">
+                  <a
+                        
+                        href="{{ link.url }}"
+                        class="collection-megamenu-button"
+                      >
+                        {{- link.title | escape -}}
+                      </a>
+                 </div>
+                 <div class="megamenu-menulist-wrapper">
+                    <ul
+                  class="mega-menu__list {% if link.levels == 1 %} mega-menu__list--condensed{% endif %}"
+                  role="list"
+                >
+                  {%- for childlink in link.links -%}
+                    <li>
+                      <a
+                        id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
+                        href="{{ childlink.url }}"
+                        class="mega-menu__link mega-menu__link--level-2 link{% if childlink.current %} mega-menu__link--active{% endif %}"
+                        {% if childlink.current %}
+                          aria-current="page"
+                        {% endif %}
+                      >
+                        {{ childlink.title | escape }}
+                      </a>
+                      {%- if childlink.links != blank -%}
+                        <ul class="list-unstyled" role="list">
+                          {%- for grandchildlink in childlink.links -%}
+                            <li>
+                              <a
+                                id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
+                                href="{{ grandchildlink.url }}"
+                                class="mega-menu__link link{% if grandchildlink.current %} mega-menu__link--active{% endif %}"
+                                {% if grandchildlink.current %}
+                                  aria-current="page"
+                                {% endif %}
+                              >
+                                {{ grandchildlink.title | escape }}
+                              </a>
+                            </li>
+                          {%- endfor -%}
+                        </ul>
+                      {%- endif -%}
+                    </li>
+                  {%- endfor -%}
+                </ul>
+                 </div>
+               </div>
+              </div>
+            </details>
+          </header-menu>
+        {%- else -%}
+          <a
+            id="HeaderMenu-{{ link.handle }}"
+            href="{{ link.url }}"
+            class="header__menu-item list-menu__item link link--text focus-inset"
+            {% if link.current %}
+              aria-current="page"
+            {% endif %}
+          >
+            <span
+              {%- if link.current %}
+                class="header__active-menu-item"
+              {% endif %}
+            >
+              {{- link.title | escape -}}
+            </span>
+          </a>
+        {%- endif -%}
+      </li>
+    {%- endfor -%}
+  </ul>
+</nav>

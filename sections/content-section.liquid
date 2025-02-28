@@ -1,0 +1,170 @@
+{{ 'content-section.css' | asset_url | stylesheet_tag }}
+
+<div class="content-section page-width">
+  <div class="grid-continer-{{ section.settings.grid_size }}">
+    <div class="content-wrapper">
+      {% if section.settings.pre_title %}
+      <h4
+        style="color:{{ section.settings.pre_title_color }}; "
+        class="pre-title-{{ section.settings.pre_title_size }}"
+      >
+        {{ section.settings.pre_title }}
+      </h4>
+      {% endif %}
+      {% if section.settings.title %}
+      <h2
+        style="color:{{ section.settings.title_color }};"
+        class="title-{{ section.settings.title_size }}"
+      >
+        {{ section.settings.title }}
+      </h2>
+      {% endif %}
+      {% if section.settings.description  %}
+      <div
+        style="color:{{ section.settings.description_color }}; width:{{ section.settings.description_width }}%;"
+        class="description description-{{ section.settings.description_size }}"
+      >
+        {{ section.settings.description }}
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Content",
+  "settings": [
+        {
+          "type": "select",
+          "id": "grid_size",
+          "options": [
+            {
+              "value": "full-width",
+              "label": "Full Width"
+            },
+            {
+              "value": "half-width",
+              "label": "Half Width"
+            },
+          ],
+          "default": "full-width",
+          "label": "Grid",
+        },
+    {
+      "type": "text",
+       "id":"pre_title",
+      "label": "Pre Title",
+      "default":"Get the best value without compromising on quality."
+    },
+    {
+      "type": "color",
+       "id":"pre_title_color",
+      "label": "Pre Title Color",
+      "default":"#000000"
+    },
+    
+       {
+          "type": "select",
+          "id": "pre_title_size",
+          "options": [
+            {
+              "value": "h6",
+              "label": "Small"
+            },
+            {
+              "value": "h5",
+              "label": "Medium"
+            },
+            {
+              "value": "h4",
+              "label": "Large"
+            }
+          ],
+          "default": "h4",
+          "label": "Pre Title Size",
+        },
+    {
+      "type": "text",
+       "id":"title",
+      "label": "Title",
+      "default":"Parts for thousands of machine makes and models"
+    },
+      {
+      "type": "color",
+       "id":"title_color",
+      "label": "Title Color",
+      "default":"#000000"
+    },
+       {
+          "type": "select",
+          "id": "title_size",
+          "options": [
+            {
+              "value": "h4",
+              "label": "Small"
+            },
+            {
+              "value": "h3",
+              "label": "Medium"
+            },
+            {
+              "value": "h2",
+              "label": "Large"
+            }
+          ],
+          "default": "h2",
+          "label": "Title size",
+        },
+          
+    {
+      "type": "richtext",
+       "id":"description",
+      "label": "Description",
+      "default":"<p>Our diverse stock range ensures that you can find the right part quickly, reducing downtime and enhancing productivity.</p>"
+    },
+      {
+      "type": "color",
+       "id":"description_color",
+      "label": "Description Color",
+      "default":"#000000"
+    },
+          {
+      "type": "range",
+      "id": "description_width",
+      "min": 50,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Description Width",
+      "default": 80
+    },
+
+    {
+          "type": "select",
+          "id": "description_size",
+          "options": [
+            {
+              "value": "small",
+              "label": "Small"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "large",
+              "label": "Large"
+            }
+          ],
+          "default": "small",
+          "label": "Description size",
+        },
+  ],
+  "presets": [
+    {
+      "name": "Content Section",
+    }
+  ]
+}
+{% endschema %}

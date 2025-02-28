@@ -1,0 +1,28 @@
+.test-slider {
+  overflow: hidden;
+}
+.test-slider .img-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.test-slider img {
+  object-fit: contain;
+}
+.test-slider img:hover{
+  cursor:pointer;
+}
+.test-slider .img-wrapper:hover {
+  animation-play-state: paused;
+}
+.test-slider .img-wrapper.mobile{
+  display:none;
+}
+@media screen and (max-width:500px){
+  .test-slider .img-wrapper.mobile{
+  display:block;
+}
+  /* .test-slider .img-wrapper img{
+    width:unset !important;
+    height:unset !important;
+  } */
+}

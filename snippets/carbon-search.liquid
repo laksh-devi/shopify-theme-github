@@ -1,0 +1,62 @@
+{% comment %}
+  Renders a header search modal. Should be used with 'header.liquid'
+
+  Accepts:
+  - input_id: {String} Id for the search input element (required)
+
+  Usage:
+  {% render 'carbon-search', input_id: 'My-Id'%}
+{% endcomment %}
+
+<predictive-search class="search-modal__form css-ek76mg" data-loading-text="{{ 'accessibility.loading' | t }}">
+  <form action="{{ routes.search_url }}" method="get" role="search" class="search search-modal__form" id="search-form">
+    <div class="css-kjafn5">
+      <div class="css-omd3pp search-input-wrapper">
+        <input
+          class="css-oawf44 text-body--small"
+          id="{{ input_id }}"
+          type="search"
+          name="q"
+          value="{{ search.terms | escape }}"
+          placeholder="Search part or machine model…"
+          role="combobox"
+          aria-expanded="false"
+          aria-owns="predictive-search-results"
+          aria-controls="predictive-search-results"
+          aria-haspopup="listbox"
+          aria-autocomplete="list"
+          autocorrect="off"
+          autocomplete="off"
+          autocapitalize="off"
+          spellcheck="false"
+        >
+         {% render 'search-icon-svg' %}
+      </div>
+      <input type="hidden" name="options[prefix]" value="last">
+      <button
+        type="reset"
+        class="reset__button field__button"
+        aria-label="{{ 'general.search.reset' | t }}"
+        id="search-reset-button"
+        style="display: none;"
+      >
+        {%- render 'icon-cross' -%}
+      </button>
+      <div class="css-1cxtthl">
+        <div class="css-1ro293w">
+          <button
+            class="search__button text-body--large"
+            aria-label="{{ 'general.search.search' | t }}"
+            type="submit"
+            id="search-submit-button"
+          >
+            {{ 'general.search.search' | t }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="predictive-search predictive-search--header" tabindex="-1" data-predictive-search></div>
+  <span class="predictive-search-status visually-hidden" role="status" aria-hidden="true"></span>
+</predictive-search>
+<div class="predictive-search-overlay"></div>

@@ -1,0 +1,198 @@
+{{ 'custom-collection-grid.css' | asset_url | stylesheet_tag }}
+
+<div class="test-collections page-width">
+  <div
+    id="collection-wrapper"
+    class="collection-wrapper"
+    style="display: grid; gap:{{ section.settings.cards-grid-gap }}px"
+  >
+    {% for collection in collections %}
+      <div class="collection-item" >
+        <div class="card"> <a href="/collections/{{ collection.handle }}">
+          <img
+            src="{{ collection.image.src | img_url:'large' }}"
+            width="400"
+            height="200"
+            alt="{{ collection.image.alt }}"
+          >
+        </a></div>
+       
+        {% if collection.title %}
+          <div style="text-align:{{ section.settings.text_align }}; " class="card-details">
+            <h5
+              class="title-{{ section.settings.title-size }}"
+              style="color:{{ section.settings.title-color }}; margin-top:{{ section.settings.title-margin-top }}px;margin-bottom:{{ section.settings.title-margin-bottom }}px;"
+            >
+              {{ collection.title }}
+            </h5>
+
+            <a href="/collections/{{ collection.handle }}" style="color:{{ section.settings.link-color }}" class="collection-link"
+              >View All {{ collection.title -}}
+            </a>
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+<!-- <style>
+  @media screen and (max-width:1024px){
+  .test-collections .collection-wrapper{
+    display:grid;
+    grid-template-columns:repeat(4,1fr) !important;
+  }
+}
+</style> -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const wrapper = document.getElementById("collection-wrapper");
+    
+    function updateGrid() {
+      let columns; 
+      if (window.innerWidth > 1100) {
+        columns = {{ section.settings.desktop-grid-count }};
+      } else if (window.innerWidth > 600 && window.innerWidth < 1100) {    
+         columns = {{ section.settings.tablet-grid-count }};
+      } else if (window.innerWidth < 600)  {
+        columns = {{ section.settings.mobile-grid-count }};
+      }
+      wrapper.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
+    }
+
+    updateGrid();
+    window.addEventListener("resize", updateGrid); 
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Collections Grid",
+  "tag": "section",
+  "settings": [
+     {
+      "type": "range",
+      "id": "desktop-grid-count",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "label": "Desktop Grid Count",
+      "default": 4
+    },
+     {
+      "type": "range",
+      "id": "tablet-grid-count",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "label": "Tablet Grid Count",
+      "default": 2
+    },
+     {
+      "type": "range",
+      "id": "mobile-grid-count",
+      "min": 0,
+      "max": 2,
+      "step": 1,
+      "label": "Mobile Grid Count",
+      "default": 1
+    },
+     {
+      "type": "range",
+      "id": "cards-grid-gap",
+      "min": 10,
+      "max": 50,
+      "step": 10,
+      "unit": "px",
+      "label": "Cards Grid Gap",
+      "default": 10
+    },
+    {
+      "type": "color",
+      "id": "title-color",
+      "label": "Title Color",
+      "default":"#000"
+    },
+     {
+          "type": "select",
+          "id": "title-size",
+          "options": [
+            {
+              "value": "h6",
+              "label": "Small"
+            },
+            {
+              "value": "h5",
+              "label": "Medium"
+            },
+            {
+              "value": "h4",
+              "label": "Large"
+            }
+          ],
+          "default": "h4",
+          "label": "Title size",
+        },
+       {
+      "type": "select",
+      "id": "text_align",
+     "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center",
+      "label": "Text Alignment"
+    },
+        {
+      "type": "range",
+      "id": "title-margin-top",
+      "min": 0,
+      "max": 100,
+      "unit": "px",
+      "step": 10,
+      "label": "Title margin top",
+      "default": 0
+    },
+        {
+      "type": "range",
+      "id": "title-margin-bottom",
+      "min": 0,
+      "max": 100,
+      "unit": "px",
+      "step": 10,
+      "label": "Title margin bottom",
+      "default": 0
+    },
+        {
+      "type": "range",
+      "id": "card-content-padding",
+      "min": 10,
+      "max": 100,
+      "unit": "px",
+      "step": 2,
+      "label": "Card Content Padding",
+      "default": 10
+    },
+    {
+      "type": "color",
+      "id": "link-color",
+      "label": "Link Color",
+      "default":"#000"
+    },
+  ],
+    "presets": [
+    {
+      "name": "Collection Grid"
+    }
+    ]
+}
+{% endschema %}

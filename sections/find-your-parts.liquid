@@ -1,0 +1,49 @@
+{{ 'custom-find-your-parts.css' | asset_url | stylesheet_tag }}
+
+<div class="page-width">
+  <div class="find-your-parts-wrapper">
+    <div class="part-finder">
+      <select id="pfType" class="partfinder-select" >
+        <option>Select Type 1</option>
+        <option>Select Type 2</option>
+        <option>Select Type 3</option>
+      </select>
+      <select id="pfManufacturer" class="partfinder-select" disabled>
+        <option>Select Manufacturer</option>
+      </select>
+      <select id="pfSeries" class="partfinder-select" disabled>
+        <option>Select Series</option>
+      </select>
+      <select id="pfModel" class="partfinder-select" disabled >
+        <option>Select Model</option>
+      </select>
+      <button id="pfSearch" disabled>Search</button>
+      </div>
+  </div>
+</div>
+
+<div id="filters"></div>
+<script>
+    function renderFacets(facets) {
+        let html = "<h3>Filters</h3>";
+        facets.forEach(facet => {
+            html += `<div>${facet.name}</div>`;
+        });
+        document.getElementById("filters").innerHTML = html;
+    }
+</script>
+
+
+
+{% schema %}
+  {
+    "name": "Find Your Parts",
+    "class": "find-your-parts-section",
+    "settings": [],
+    "presets": [
+      {
+        "name": "Find Your Parts"
+      }
+    ]
+  }
+{% endschema %}

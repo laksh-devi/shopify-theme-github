@@ -1,0 +1,61 @@
+.find-your-parts-section .find-your-parts-wrapper {
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: none;
+  position: relative;
+  margin-top: -70px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6.5px 4px #0000000a;
+  transition: .5s;
+  margin-bottom: 24px;
+  z-index: 0;
+  transition: .6s;
+}
+
+.find-your-parts-section .part-finder {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: #f3f2f2;
+    border-radius: 64px;
+    padding: 8px;
+    border: 2px solid transparent;
+    position: relative;
+}
+
+.find-your-parts-section .part-finder select {
+  padding: 16px 10px;
+  color: #76736F;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 21.79px;
+  background-color: #F3F2F2;
+  border: none;
+  text-align: end;
+  width: 250px;
+  /* height: 48px; */
+  box-shadow: none;
+  outline: none;
+}
+
+.find-your-parts-section .part-finder button {
+  background-color: var(--primary-bg-color) !important;
+  padding: 13px 45px;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  line-height: 21.79px !important;
+  text-align: center;
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  justify-content: center !important;
+  border-radius: 64px;
+  border: none;
+  color: #000000;
+  opacity: 0.5;
+}
+
+
+

@@ -1,0 +1,108 @@
+.cta-section{
+  margin-top:50px;
+}
+.cta-section .bg-img {
+    background-size: cover;
+    background-position: center;
+    background-repeat:no-repeat;
+    padding: 108px 104px;
+    color: #fff;
+    width: 100%;
+    display: block;
+    position: relative;
+    margin-bottom: 64px;
+    height:100%;
+    display: flex;
+    border-radius: 8px;
+    background-color:#000;
+  }
+
+  .cta-section .cta-title {
+    width: 75%;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 56px;
+    text-align: left;
+    color:#fff;
+    margin: 0
+  }
+
+  .cta-section p {
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+
+  .cta-section .cta-buttons .cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    
+  }
+  .cta-section .cta-buttons svg{
+    height:1em;
+    vertical-align:middle;
+    font-size: 20px;
+    padding-right: 8px;
+    vertical-align: -0.25em;
+  }
+  .cta-section .cta-buttons .cta-button:nth-child(1){
+    color: #000;
+    background-color: #f47a1f; 
+  }
+  .cta-section .cta-buttons .cta-button:nth-child(2){
+    color: #fff;
+    background-color: transparent; 
+    border:1px solid #fff;
+  }
+  .cta-section .cta-buttons .cta-button:nth-child(1):hover {
+    background-color: #f6954c;
+  }
+  .cta-section .cta-buttons .cta-button:nth-child(2):hover {
+    background-color: #f47a1f !important;
+  }
+@media screen and (min-width:767px){
+  .cta-section{
+    margin-bottom:-200px;
+  }
+}
+
+@media screen and (max-width:768px){
+  .cta-section .cta-buttons .cta-button{
+    display:block;
+    margin-top:10px;
+    width:max-content;
+  }
+  .cta-section .cta-title{
+    width:100%;
+  }
+  .cta-section p{
+    margin-bottom:20px;
+  }
+   .cta-section .cta-content{
+     padding-top:45px;
+   }
+}
+
+@media screen and (max-width:640px){
+  .cta-section .bg-img {
+    padding:35px;
+    border-radius:0;
+    
+  }
+  .cta-section .page-width{
+    max-width:0px !important;
+    margin:0 !important;
+    padding:0 !important;
+  }
+   .cta-section .cta-title{
+     font-size:32px;
+     line-height:40px;
+     padding-top:30px;
+   }
+  .cta-section .mobile-bg{
+    margin-bottom:0;
+  }
+}

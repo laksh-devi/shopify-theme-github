@@ -1,0 +1,127 @@
+{{ 'logo-slider.css' | asset_url | stylesheet_tag }}
+
+<div class="test-slider">
+  <div class="img-wrapper" style="width:calc(200px * {{ section.blocks.size }} * 3);">
+    {% for i in (1..3) %}
+      {% for block in section.blocks %}
+        <a href="#" aria-label="Logo">
+          {% if block.settings['slider-image'] %}
+            <img
+              src="{{ block.settings.slider-image | img_url:"large" }}"
+              width="215"
+              height="100"
+              style="width:{{ section.settings.slide-img-width }}px; height:{{ section.settings.slide-img-height }}px;"
+            >
+          {% endif %}
+        </a>
+      {% endfor %}
+    {% endfor %}
+  </div>
+  <div class="img-wrapper mobile" style="width:calc(200px * {{ section.blocks.size }} * 3);">
+    {% for i in (1..3) %}
+      {% for block in section.blocks %}
+        <a href="#" aria-label="Logo">
+          {% if block.settings['slider-image'] %}
+            <img
+              src="{{ block.settings.slider-image | img_url:"large" }}"
+              width="215"
+              height="100"
+              style="width:{{ section.settings.slide-img-width }}px; height:{{ section.settings.slide-img-height }}px;"
+            >
+          {% endif %}
+        </a>
+      {% endfor %}
+    {% endfor %}
+  </div>
+</div>
+
+{% style %}
+    @keyframes slider {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+    .test-slider .img-wrapper{
+       animation: slider {{ section.settings.slide-speed }}s linear infinite;
+    }
+  .test-slider img:hover{
+    background-color:{{ section.settings.img_bg_color }};
+  }
+  @media screen and (max-width:500px){
+    .test-slider .img-wrapper.mobile{
+       display: flex;
+       flex-direction: row;
+       animation: slider 40s linear infinite;
+    }
+    .test-slider .img-wrapper.mobile a{
+       text-decoration:none;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Test Slider",
+  "tag": "section",
+  "class": "test-slider",
+  "settings": [
+     {
+      "type": "range",
+      "id": "slide-speed",
+      "min": 10,
+      "max": 100,
+      "step": 10,
+      "label": "Slider speed",
+      "default": 10
+    },
+     {
+      "type": "range",
+      "id": "slide-img-width",
+      "min": 200,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "label": "Slider Img Width",
+      "default": 200
+    },
+     {
+      "type": "range",
+      "id": "slide-img-height",
+      "min": 80,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Slider Img Height",
+      "default": 100
+    },
+     {
+          "type": "color",
+          "id": "img_bg_color",
+          "label": "Slider Image Bg Color",
+       "default":"#dad9d6"
+        }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "t:sections.slideshow.blocks.slide.name",
+      "limit": 20,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "slider-image",
+          "label": "Slider Image",
+        }
+      ]
+      }
+  ],
+  "presets": [
+    {
+      "name": "Test Slider"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,65 @@
+{{ 'Info-section.css' | asset_url | stylesheet_tag }}
+
+<section class="info-section --{{ section.id }} ">
+  <div class="page-width">
+  <div class="info-grid">
+    {% for block in section.blocks %}
+      <div class="info-content-wrapper">
+       {% if block.settings.image %}
+         <img src="{{ block.settings.image | img_url:'9000' }}"  loading="lazy" width="24" height="24" alt={{ block.settings.title }}/>
+         {% endif %}
+         <div class="info-details">
+            {% if block.settings.title %}
+             <a href="{{ block.settings.url }}" aria-lebel="{{ block.settings.title }}">{{ block.settings.title }}</a>
+            {% endif %} 
+           {% if block.settings.description %}
+             <p>{{ block.settings.description }}</p>
+            {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+</section>
+
+
+
+
+{% schema %}
+{
+  "name": "Info Section",
+  "blocks": [
+    {
+      "type": "info_block",
+      "name": "Info Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Info section"
+    }
+  ]
+}
+{% endschema %}
