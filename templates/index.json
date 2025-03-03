@@ -63,6 +63,8 @@
         "slide_rYMBUK": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/hero_banner_2x_faa56c0f-bf96-4758-ab48-d49c87b1ccde.jpg",
+            "responsiveImage": "shopify://shop_images/Hero_Slider_Mobile.png",
             "heading": "Excavator Parts & Wear Parts Shipping Across the France",
             "heading_size": "hxl",
             "subheading": "With same day dispatch and fast delivery times across the USA, we can get you the parts you need when you need them.",
