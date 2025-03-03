@@ -81,7 +81,6 @@
       "block_order": [
         "slide_rYMBUK"
       ],
-      "disabled": true,
       "settings": {
         "layout": "full_bleed",
         "slide_height": "large",
@@ -140,12 +139,10 @@
         "info_block_ririik",
         "info_block_Yx3KAP"
       ],
-      "disabled": true,
       "settings": {}
     },
     "collection_grid_6RBC3j": {
       "type": "collection-grid",
-      "disabled": true,
       "settings": {
         "desktop-grid-count": 4,
         "tablet-grid-count": 2,
@@ -227,44 +224,11 @@
         "slide_X9qz7M",
         "slide_xJNFkw"
       ],
-      "disabled": true,
       "settings": {
         "slide-speed": 60,
         "slide-img-width": 200,
         "slide-img-height": 100,
         "img_bg_color": "#dad9d6"
-      }
-    },
-    "content_section_kYdBPY": {
-      "type": "content-section",
-      "settings": {
-        "grid_size": "full-width",
-        "pre_title": "Get the best value without compromising on quality.",
-        "pre_title_color": "#000000",
-        "pre_title_size": "h4",
-        "title": "Parts for thousands of machine makes and models",
-        "title_color": "#000000",
-        "title_size": "h2",
-        "description": "<p>Our diverse stock range ensures that you can find the right part quickly, reducing downtime and enhancing productivity.</p>",
-        "description_color": "#000000",
-        "description_width": 80,
-        "description_size": "small"
-      }
-    },
-    "content_section_VGJA3n": {
-      "type": "content-section",
-      "settings": {
-        "grid_size": "full-width",
-        "pre_title": "Welcome",
-        "pre_title_color": "#000000",
-        "pre_title_size": "h4",
-        "title": "Parts for thousands of machine makes and models",
-        "title_color": "#000000",
-        "title_size": "h2",
-        "description": "<p>Our diverse stock range ensures that you can find the right part quickly, reducing downtime and enhancing productivity.</p>",
-        "description_color": "#000000",
-        "description_width": 80,
-        "description_size": "small"
       }
     }
   },
@@ -275,8 +239,6 @@
     "info_section_ciKYja",
     "collection_grid_6RBC3j",
     "content_section_hhjEUH",
-    "logo_slider_bbd6QJ",
-    "content_section_kYdBPY",
-    "content_section_VGJA3n"
+    "logo_slider_bbd6QJ"
   ]
 }
