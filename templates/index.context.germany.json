@@ -12,5 +12,16 @@
   "context": {
     "market": "germany"
   },
-  "sections": {}
+  "sections": {
+    "slideshow_9zVJHH": {
+      "settings": {},
+      "blocks": {
+        "slide_rYMBUK": {
+          "settings": {
+            "heading": "Excavator Parts & Wear Parts Shipping Across the German"
+          }
+        }
+      }
+    }
+  }
 }
