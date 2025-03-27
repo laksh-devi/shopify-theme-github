@@ -1,72 +1,165 @@
-<!-- Vendor Filter -->
+{% comment %}
+  Shopify Collection Page with Filtering Using Metafields
+{% endcomment %}
+
+<!-- Dropdown Filters -->
 <div class="filter-section">
-  <label for="brand-filter">Brand:</label>
-  <select id="brand-filter">
-    <option value="">All Brands</option>
-    {% assign all_brands = '' %}
+  <!-- <label for="brand-filter">Brand:</label> -->
+  <select id="brand-filter" onchange="updateModelFilter()">
+    <option value="">Brand</option>
+    {% assign brands = '' %}
     {% for product in collection.products %}
-      {% assign brand_value = product.vendor | escape %}
-      {% unless all_brands contains brand_value %}
+      {% capture brand_value %}{{ product.metafields.custom.manufacturer | escape }}{% endcapture %}
+      {% unless brands contains brand_value %}
         <option value="{{ brand_value }}">{{ brand_value }}</option>
-        {% assign all_brands = all_brands | append: ',' | append: brand_value %}
+        {% assign brands = brands | append: ',' | append: brand_value %}
       {% endunless %}
     {% endfor %}
   </select>
+
+  <!-- <label for="model-filter">Model:</label> -->
+  <select id="model-filter" onchange="filterProducts()">
+    <option value="">Model</option>
+  </select>
 </div>
 
-<!-- Product Grid -->
-<div id="product-grid">
-  {% for product in collection.products %}
-    <div class="grid__item" data-vendor="{{ product.vendor | escape }}">
-      <h3>{{ product.title }}</h3>
-      <p>Brand: {{ product.vendor }}</p>
-    </div>
-  {% endfor %}
-</div>
+
+
+
+
 
 
 <script>
+
+
+// // Run the script after DOM content is loaded
 document.addEventListener('DOMContentLoaded', () => {
+  // Initialize filter with URL params
   initializeFiltersFromURL();
 
+  // Add event listeners for filter changes
   document.getElementById('brand-filter').addEventListener('change', () => {
+    updateModelFilter();
     applyFiltersToURL();
-    fetchFilteredProducts();
   });
 
-  function applyFiltersToURL() {
-    const brand = document.getElementById('brand-filter').value;
-    let searchParams = new URLSearchParams(window.location.search);
+  document.getElementById('model-filter').addEventListener('change', () => {
+    filterProducts();
+    applyFiltersToURL();
+  });
 
-    brand ? searchParams.set('brand', brand) : searchParams.delete('brand');
+  // ✅ Populate model filter based on selected brand
+  function updateModelFilter() {
+    const brandFilter = document.getElementById('brand-filter').value;
+    const modelFilter = document.getElementById('model-filter');
+    const products = document.querySelectorAll('#product-grid .grid__item');
 
-    const newURL = `${window.location.pathname}?section_id=template--25104560324948__product-grid&${searchParams.toString()}`;
-    history.pushState({}, '', newURL);
+    // Clear previous model options
+    modelFilter.innerHTML = '<option value="">Model</option>';
+
+    const models = new Set();
+
+    // Collect models for the selected brand
+    products.forEach(product => {
+      const productBrand = product.getAttribute('data-brand');
+      const productModel = product.getAttribute('data-model');
+
+      if (!brandFilter || productBrand === brandFilter) {
+        models.add(productModel);
+      }
+    });
+
+    // Populate model dropdown
+    models.forEach(model => {
+      const option = document.createElement('option');
+      option.value = model;
+      option.textContent = model;
+      modelFilter.appendChild(option);
+    });
+
+    // Apply filters after updating the model dropdown
+    filterProducts();
   }
 
-  function fetchFilteredProducts() {
-    const searchParams = new URLSearchParams(window.location.search);
-    const url = `${window.location.pathname}?section_id=template--25104560324948__product-grid&${searchParams}`;
+  // 🔎 Filter products based on brand and model
+  function filterProducts() {
+    const brandFilter = document.getElementById('brand-filter').value;
+    const modelFilter = document.getElementById('model-filter').value;
+    const products = document.querySelectorAll('#product-grid .grid__item');
 
-    fetch(url)
-      .then(response => response.text())
-      .then(html => {
-        const parsedHTML = new DOMParser().parseFromString(html, 'text/html');
-        const newProducts = parsedHTML.getElementById('product-grid');
+    let visibleBrandCount = 0;
+    let visibleProductCount = 0;
 
-        if (newProducts) {
-          document.getElementById('product-grid').innerHTML = newProducts.innerHTML;
-        } else {
-          console.error("Product grid not found in fetched HTML.");
+    products.forEach(product => {
+      const productBrand = product.getAttribute('data-brand');
+      const productModel = product.getAttribute('data-model');
+
+      let show = true;
+
+      if (brandFilter && productBrand !== brandFilter) {
+        show = false;
+      }
+      if (modelFilter && productModel !== modelFilter) {
+        show = false;
+      }
+
+      product.style.display = show ? 'block' : 'none';
+
+      if (show) {
+        visibleBrandCount++;
+        if (productBrand === brandFilter || brandFilter === '') {
+          visibleProductCount++;
         }
-      })
-      .catch(error => console.error("Error fetching products:", error));
+      }
+    });
+
+    console.log(`Visible brands: ${visibleBrandCount}`);
+    console.log(`Products for selected brand: ${visibleProductCount}`);
   }
 
+  // 🔥 Apply the filters as URL query parameters
+  function applyFiltersToURL() {
+    const brandFilter = document.getElementById('brand-filter').value;
+    const modelFilter = document.getElementById('model-filter').value;
+
+    const params = new URLSearchParams(window.location.search);
+
+    if (brandFilter) {
+      params.set('brand', brandFilter);
+    } else {
+      params.delete('brand');
+    }
+
+    if (modelFilter) {
+      params.set('model', modelFilter);
+    } else {
+      params.delete('model');
+    }
+
+    const newUrl = `${window.location.pathname}?${params.toString()}`;
+    window.history.pushState({}, '', newUrl);
+  }
+
+  // 🔥 Initialize filters based on URL params
   function initializeFiltersFromURL() {
-    const searchParams = new URLSearchParams(window.location.search);
-    document.getElementById('brand-filter').value = searchParams.get('brand') || "";
+    const params = new URLSearchParams(window.location.search);
+    const brand = params.get('brand');
+    const model = params.get('model');
+
+    if (brand) {
+      document.getElementById('brand-filter').value = brand;
+    }
+
+    updateModelFilter();
+
+    if (model) {
+      document.getElementById('model-filter').value = model;
+    }
+
+    filterProducts();
   }
 });
+
+
 
 </script>
