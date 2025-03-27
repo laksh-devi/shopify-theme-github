@@ -20,3 +20,6 @@
   outline:transparent !important;
   box-shadow: none;
 }
+.filter-btn{
+  display:none
+}
