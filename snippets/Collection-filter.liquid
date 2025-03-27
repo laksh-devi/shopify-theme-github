@@ -1,0 +1,72 @@
+<!-- Vendor Filter -->
+<div class="filter-section">
+  <label for="brand-filter">Brand:</label>
+  <select id="brand-filter">
+    <option value="">All Brands</option>
+    {% assign all_brands = '' %}
+    {% for product in collection.products %}
+      {% assign brand_value = product.vendor | escape %}
+      {% unless all_brands contains brand_value %}
+        <option value="{{ brand_value }}">{{ brand_value }}</option>
+        {% assign all_brands = all_brands | append: ',' | append: brand_value %}
+      {% endunless %}
+    {% endfor %}
+  </select>
+</div>
+
+<!-- Product Grid -->
+<div id="product-grid">
+  {% for product in collection.products %}
+    <div class="grid__item" data-vendor="{{ product.vendor | escape }}">
+      <h3>{{ product.title }}</h3>
+      <p>Brand: {{ product.vendor }}</p>
+    </div>
+  {% endfor %}
+</div>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  initializeFiltersFromURL();
+
+  document.getElementById('brand-filter').addEventListener('change', () => {
+    applyFiltersToURL();
+    fetchFilteredProducts();
+  });
+
+  function applyFiltersToURL() {
+    const brand = document.getElementById('brand-filter').value;
+    let searchParams = new URLSearchParams(window.location.search);
+
+    brand ? searchParams.set('brand', brand) : searchParams.delete('brand');
+
+    const newURL = `${window.location.pathname}?section_id=template--25104560324948__product-grid&${searchParams.toString()}`;
+    history.pushState({}, '', newURL);
+  }
+
+  function fetchFilteredProducts() {
+    const searchParams = new URLSearchParams(window.location.search);
+    const url = `${window.location.pathname}?section_id=template--25104560324948__product-grid&${searchParams}`;
+
+    fetch(url)
+      .then(response => response.text())
+      .then(html => {
+        const parsedHTML = new DOMParser().parseFromString(html, 'text/html');
+        const newProducts = parsedHTML.getElementById('product-grid');
+
+        if (newProducts) {
+          document.getElementById('product-grid').innerHTML = newProducts.innerHTML;
+        } else {
+          console.error("Product grid not found in fetched HTML.");
+        }
+      })
+      .catch(error => console.error("Error fetching products:", error));
+  }
+
+  function initializeFiltersFromURL() {
+    const searchParams = new URLSearchParams(window.location.search);
+    document.getElementById('brand-filter').value = searchParams.get('brand') || "";
+  }
+});
+
+</script>
