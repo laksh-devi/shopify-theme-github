@@ -24,7 +24,7 @@
 .filter-btn{
   display:none
 }
-.custom-filter {
+/* .custom-filter {
   appearance: none;               
   -webkit-appearance: none;       
   -moz-appearance: none;          
@@ -34,6 +34,51 @@
   padding: 10px;
   border: 1px solid #ccc;
   cursor: pointer;
+} */
+.filter-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 200px;
+}
+
+/* Custom Select */
+.custom-filter {
+  width: 100%;
+  padding: 10px 40px 10px 10px;  /* Padding to make space for the arrow */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  appearance: none;               /* Remove default arrow */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: white;
+  cursor: pointer;
+  z-index: 1;
+  position: relative;
+}
+
+/* Arrow SVG Styling */
+.custom-arrow {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;          /* Allow clicks on select */
+  z-index: 2;                    /* Make sure arrow is above select */
+}
+
+/* Styling on Hover and Focus */
+.custom-filter:hover {
+  border-color: #666;
+}
+
+.custom-filter:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* Fixing select and arrow overlap */
+.filter-wrapper {
+  overflow: hidden;
 }
 
 @media screen and (max-width:768px){
