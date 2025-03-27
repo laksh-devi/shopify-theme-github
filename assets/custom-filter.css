@@ -4,10 +4,12 @@
   align-items: center;
   gap:20px;
 }
-
+.filter-section .filter{
+  background-color: #F3F2F2;
+  padding: 13px 16px;
+}
 .filter-section .custom-filter{
   background: #F3F2F2;
-    padding: 13px 16px;
     border: none;
     width: 208px;
     display: flex;
