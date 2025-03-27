@@ -28,7 +28,8 @@
   appearance: none;               
   -webkit-appearance: none;       
   -moz-appearance: none;          
-  background: url('arrow-down.svg') no-repeat right 10px center; 
+  /* background: url('arrow-down.svg') no-repeat right 10px center;  */
+  background:#000;
   background-size: 12px;          
   padding: 10px;
   border: 1px solid #ccc;
