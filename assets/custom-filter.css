@@ -27,9 +27,11 @@
 @media screen and (max-width:768px){
   .filter-btn{
   display:block;
-  margin-bottom:20px;  
-    
+ 
 }
+  .filter-section .filter{
+     margin-bottom:20px;  
+  }
 .filter-btn span svg{
   width:16px;
   height:16px;
