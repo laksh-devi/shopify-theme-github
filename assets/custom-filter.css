@@ -34,4 +34,8 @@
   height:16px;
   vertical-align:middle;
 }
+  
+.filter-section .custom-filter{
+  width:100%;
+}
 }
