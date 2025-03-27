@@ -16,3 +16,6 @@
     align-items: center;
     justify-content: space-between;
 }
+.filter-section .custom-filter:focus-visible{
+  outline:transparent !important;
+}
