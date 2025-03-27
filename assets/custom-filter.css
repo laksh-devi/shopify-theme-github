@@ -38,6 +38,7 @@
         letter-spacing: 0;
         text-align: center;
         height: 2.5rem !important;
+        border-radius: 20px;
 }
   .filter-section .filter{
      margin-top:20px;  
