@@ -24,6 +24,16 @@
 .filter-btn{
   display:none
 }
+.custom-filter {
+  appearance: none;               
+  -webkit-appearance: none;       
+  -moz-appearance: none;          
+  background: url('arrow-down.svg') no-repeat right 10px center; 
+  background-size: 12px;          
+  padding: 10px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
 
 @media screen and (max-width:768px){
   .filter-btn{
