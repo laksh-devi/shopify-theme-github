@@ -5,21 +5,22 @@
 <!-- Dropdown Filters -->
 <div class="filter-section">
   <!-- <label for="brand-filter">Brand:</label> -->
+  
   <select id="brand-filter" onchange="updateModelFilter()">
     <option value="">Brand</option>
-    {% assign brands = '' %}
-    {% for product in collection.products %}
-      {% capture brand_value %}{{ product.metafields.custom.manufacturer | escape }}{% endcapture %}
-      {% unless brands contains brand_value %}
-        <option value="{{ brand_value }}">{{ brand_value }}</option>
-        {% assign brands = brands | append: ',' | append: brand_value %}
-      {% endunless %}
-    {% endfor %}
+      <option value="">Case</option>
+       <option value="">Airmann</option>
+      <option value="">Track</option>
+      <option value="">Rubber</option>
   </select>
 
   <!-- <label for="model-filter">Model:</label> -->
   <select id="model-filter" onchange="filterProducts()">
     <option value="">Model</option>
+     <option value="">Case</option>
+       <option value="">Airmann</option>
+      <option value="">Track</option>
+      <option value="">Rubber</option>
   </select>
 </div>
 
@@ -29,7 +30,7 @@
 
 
 
-<script>
+<!-- <script>
 
 
 // // Run the script after DOM content is loaded
@@ -162,4 +163,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-</script>
+</script> -->
