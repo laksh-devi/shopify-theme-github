@@ -39,4 +39,11 @@
 .filter-section .custom-filter{
   width:100%;
 }
+  .filter-section {
+    display: none;
+    transition: all 0.3s ease;
+  }
+  .filter-section.active {
+    display: block;
+  }
 }
