@@ -33,7 +33,12 @@
   </div>
 </div>
 
-
+<script>
+  document.querySelector('.filter-btn').addEventListener('click', () => {
+    const filterSection = document.querySelector('.filter-section');
+    filterSection.classList.toggle('active');
+  });
+</script>
 
 
 
