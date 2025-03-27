@@ -1,0 +1,9 @@
+.filter-section .custom-filter{
+  background: #F3F2F2;
+    padding: 13px 16px;
+    border: none;
+    width: 208px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
