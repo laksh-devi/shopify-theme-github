@@ -24,16 +24,35 @@
 .filter-btn{
   display:none
 }
-.custom-filter {
+/* .custom-filter {
   appearance: none;               
   -webkit-appearance: none;       
   -moz-appearance: none;          
-  /* background: url('arrow-down.svg') no-repeat right 10px center;  */
+  background: url('arrow-down.svg') no-repeat right 10px center; 
   background:#000;
   background-size: 12px;          
   padding: 10px;
   border: 1px solid #ccc;
   cursor: pointer;
+} */
+custom-filter {
+  width: 100%;
+  padding: 10px 40px 10px 10px; /* Add padding for arrow */
+  border: 1px solid #ccc;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: white; 
+  cursor: pointer;
+}
+
+/* Style the arrow */
+.custom-arrow {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none; /* Prevent blocking interaction with <select> */
 }
 
 @media screen and (max-width:768px){
