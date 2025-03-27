@@ -40,6 +40,11 @@
         height: 2.5rem !important;
         border-radius: 20px;
 }
+ .filter-btn p{
+   color:#000;
+   font-size:14px;
+   font-weight:700;
+ }  
   .filter-section .filter{
      margin-top:20px;  
   }
