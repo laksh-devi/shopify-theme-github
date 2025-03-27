@@ -7,6 +7,8 @@
 .filter-section .filter{
   background-color: #F3F2F2;
   padding: 13px 16px;
+  position: relative;
+  display: inline-block;
 }
 .filter-section .custom-filter{
   background: #F3F2F2;
