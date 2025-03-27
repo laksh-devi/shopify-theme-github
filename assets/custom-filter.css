@@ -48,6 +48,9 @@
   .filter-section .filter{
      margin-top:20px;  
   }
+  .filter-btn span{
+    margin-left:8px;
+  }
 .filter-btn span svg{
   width:13px;
   height:16px;
