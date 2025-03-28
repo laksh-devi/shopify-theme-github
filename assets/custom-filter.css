@@ -24,7 +24,7 @@
 .filter-btn{
   display:none
 }
-.custom-filter {
+/* .custom-filter {
   appearance: none;               
   -webkit-appearance: none;       
   -moz-appearance: none;          
@@ -34,7 +34,7 @@
   padding: 10px;
   border: 1px solid #ccc;
   cursor: pointer;
-}
+} */
 /* .filter-wrapper {
   position: relative;
   display: inline-block;
