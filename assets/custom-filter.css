@@ -24,7 +24,7 @@
 .filter-btn{
   display:none
 }
-/* .custom-filter {
+.custom-filter {
   appearance: none;               
   -webkit-appearance: none;       
   -moz-appearance: none;          
@@ -34,15 +34,15 @@
   padding: 10px;
   border: 1px solid #ccc;
   cursor: pointer;
-} */
-/* .filter-wrapper {
+}
+.filter {
   position: relative;
   display: inline-block;
   width: 200px;
-} */
+}
 
-/* Custom Select */
-/* .custom-filter {
+
+.custom-filter {
   width: 100%;
   padding: 10px 40px 10px 10px;  
   border: 1px solid #ccc;
@@ -76,9 +76,9 @@
   border-color: #007bff;
 }
 
-.filter-wrapper {
+.filter {
   overflow: hidden;
-} */
+}
 
 @media screen and (max-width:768px){
   .filter-btn{
