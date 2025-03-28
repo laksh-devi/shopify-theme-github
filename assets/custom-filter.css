@@ -35,7 +35,7 @@
   border: 1px solid #ccc;
   cursor: pointer;
 }
-.filter {
+/* .filter {
   position: relative;
   display: inline-block;
   width: 200px;
@@ -78,7 +78,7 @@
 
 .filter {
   overflow: hidden;
-}
+} */
 
 @media screen and (max-width:768px){
   .filter-btn{
