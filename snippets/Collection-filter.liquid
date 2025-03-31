@@ -192,44 +192,208 @@ function toggleDropdown(element) {
 {% comment %}
   Shopify Collection Page with Filtering Using Metafields
 {% endcomment %}
- {{ 'custom-filter.css' | asset_url | stylesheet_tag }}
-<!-- Dropdown Filters -->
+<style>
+  .filter-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .filter-section .filter {
+    background-color: #F3F2F2;
+    padding: 13px 16px;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .filter-section .custom-filter {
+    background: #F3F2F2;
+    border: none;
+    width: 208px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 15px;
+  }
+
+  .filter-section .custom-filter:focus-visible {
+    outline: transparent !important;
+    box-shadow: none;
+  }
+
+  .filter-btn {
+    display: none;
+  }
+
+  .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    display: none;
+    transition: all 0.3s ease;
+  }
+
+  .dropdown div {
+    padding: 10px;
+    transition: background 0.2s;
+    cursor: pointer;
+  }
+
+  .dropdown div:hover {
+    background: #f0f0f0;
+  }
+
+  .filter.active .dropdown {
+    display: block;
+  }
+
+  @media screen and (max-width: 768px) {
+    .filter-btn {
+      display: flex !important;
+      align-items: center;
+      background-color: transparent !important;
+      border: 1px solid #000;
+      padding: 6px 12px;
+      width: max-content !important;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 19.07px;
+      text-align: center;
+      height: 2.5rem !important;
+      border-radius: 20px;
+    }
+
+    .filter-btn p {
+      color: #000;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .filter-section .filter {
+      margin-top: 20px;
+    }
+
+    .filter-btn span {
+      margin-left: 8px;
+    }
+
+    .filter-btn span svg {
+      width: 13px;
+      height: 16px;
+      vertical-align: -.125em;
+    }
+
+    .filter-section .custom-filter {
+      width: 100%;
+    }
+
+    .filter-section {
+      display: none;
+      transition: all 0.3s ease;
+    }
+
+    .filter-section.active {
+      display: block;
+    }
+  }
+</style>
+
 <div class="custom-filter-section page-width">
-  <div class="filter-btn">
+  <div class="filter-btn" onclick="toggleFilterSection()">
     <p>Filter</p>
-    <span><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" class="svg-inline--fa fa-plus " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-      <path fill="currentColor" d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z">    
-      </path></svg></span>
-  </div>
-<div class="filter-section">
-  <!-- <label for="brand-filter">Brand:</label> -->
-  <div class="filter custom-filter" id="brand-filter" onclick="updateModelFilter()">
-    <div>Brand</div>
-    <div>Case</div>
-    <div>Airmann</div>
-    <div>Track</div>
-    <div>Rubber</div>
+    <span>
+      <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" class="svg-inline--fa fa-plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+        <path fill="currentColor" d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32v144H48c-17.7 0-32 14.3-32 32s14.3 32 32 32h144v144c0 17.7 14.3 32 32 32s32-14.3 32-32V256h144c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"></path>
+      </svg>
+    </span>
   </div>
 
-  <!-- <label for="model-filter">Model:</label> -->
-  <div class="filter custom-filter" id="model-filter" onclick="filterProducts()">
-    <div>Model</div>
-    <div>Case</div>
-    <div>Airmann</div>
-    <div>Track</div>
-    <div>Rubber</div>
+  <div class="filter-section">
+
+    <!-- Brand Filter -->
+    <div class="filter custom-filter" id="brand-filter" onclick="toggleDropdown(this)">
+      <div class="filter-header">Brand</div>
+      <div class="dropdown"></div>
+    </div>
+
+    <!-- Model Filter -->
+    <div class="filter custom-filter" id="model-filter" onclick="toggleDropdown(this)">
+      <div class="filter-header">Model</div>
+      <div class="dropdown"></div>
+    </div>
+
   </div>
 </div>
 
-  </div>
-
-
 <script>
-  document.querySelector('.filter-btn').addEventListener('click', () => {
+  // Sample dynamic data (can be replaced with API data)
+  const brandData = ['Case', 'Airmann', 'Track', 'Rubber'];
+  const modelData = ['Model 1', 'Model 2', 'Model 3', 'Model 4'];
+
+  // Function to generate dropdown options dynamically
+  function populateDropdown(filterId, data) {
+    const dropdown = document.querySelector(`#${filterId} .dropdown`);
+    
+    // Clear existing options
+    dropdown.innerHTML = '';
+
+    data.forEach(item => {
+      const div = document.createElement('div');
+      div.textContent = item;
+      div.addEventListener('click', () => selectOption(filterId, item));
+      dropdown.appendChild(div);
+    });
+  }
+
+  // Toggle the entire filter section
+  function toggleFilterSection() {
     const filterSection = document.querySelector('.filter-section');
     filterSection.classList.toggle('active');
+  }
+
+  // Toggle individual dropdowns
+  function toggleDropdown(element) {
+    const allFilters = document.querySelectorAll('.filter');
+
+    allFilters.forEach(filter => {
+      if (filter !== element) {
+        filter.classList.remove('active');
+      }
+    });
+
+    element.classList.toggle('active');
+  }
+
+  // Select option and update the header text
+  function selectOption(filterId, value) {
+    const filter = document.querySelector(`#${filterId}`);
+    const header = filter.querySelector('.filter-header');
+
+    header.textContent = value;
+    filter.classList.remove('active');
+
+    console.log(`Selected from ${filterId}: ${value}`);
+  }
+
+  // Close dropdowns when clicking outside
+  window.addEventListener('click', (e) => {
+    if (!e.target.closest('.filter')) {
+      document.querySelectorAll('.filter').forEach(filter => {
+        filter.classList.remove('active');
+      });
+    }
   });
+
+  // Initialize dropdowns with dynamic data
+  populateDropdown('brand-filter', brandData);
+  populateDropdown('model-filter', modelData);
 </script>
+
 
 
 
