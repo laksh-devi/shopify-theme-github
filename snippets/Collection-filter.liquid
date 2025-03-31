@@ -1,4 +1,4 @@
-<style>
+{% comment %} <style>
   .custom-filter-section {
     max-width: 1200px;
     margin: 0 auto;
@@ -187,4 +187,188 @@ function toggleDropdown(element) {
   element.classList.toggle('active');
 }
 
+</script> {% endcomment %}
+
+{% comment %}
+  Shopify Collection Page with Filtering Using Metafields
+{% endcomment %}
+ {{ 'custom-filter.css' | asset_url | stylesheet_tag }}
+<!-- Dropdown Filters -->
+<div class="custom-filter-section page-width">
+  <div class="filter-btn">
+    <p>Filter</p>
+    <span><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" class="svg-inline--fa fa-plus " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+      <path fill="currentColor" d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z">    
+      </path></svg></span>
+  </div>
+<div class="filter-section ">
+  <!-- <label for="brand-filter">Brand:</label> -->
+  <div class="filter">
+  <select id="brand-filter" onchange="updateModelFilter()" class="custom-filter">
+    <option value="">Brand</option>
+      <option value="">Case</option>
+       <option value="">Airmann</option>
+      <option value="">Track</option>
+      <option value="">Rubber</option>
+  </select>
+    <!-- <div class="custom-arrow">
+        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-down" class="svg-inline--fa fa-angle-down " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"></path></svg>
+      </div> -->
+  </div>
+  <!-- <label for="model-filter">Model:</label> -->
+  <div class="filter">
+  <select id="model-filter" onchange="filterProducts()" class="custom-filter">
+    <option value="">Model</option>
+     <option value="">Case</option>
+       <option value="">Airmann</option>
+      <option value="">Track</option>
+      <option value="">Rubber</option>
+  </select>
+  </div>
+</div>
+
+<script>
+  document.querySelector('.filter-btn').addEventListener('click', () => {
+    const filterSection = document.querySelector('.filter-section');
+    filterSection.classList.toggle('active');
+  });
 </script>
+
+
+
+
+
+<!-- <script>
+
+
+// // Run the script after DOM content is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  // Initialize filter with URL params
+  initializeFiltersFromURL();
+
+  // Add event listeners for filter changes
+  document.getElementById('brand-filter').addEventListener('change', () => {
+    updateModelFilter();
+    applyFiltersToURL();
+  });
+
+  document.getElementById('model-filter').addEventListener('change', () => {
+    filterProducts();
+    applyFiltersToURL();
+  });
+
+  // ✅ Populate model filter based on selected brand
+  function updateModelFilter() {
+    const brandFilter = document.getElementById('brand-filter').value;
+    const modelFilter = document.getElementById('model-filter');
+    const products = document.querySelectorAll('#product-grid .grid__item');
+
+    // Clear previous model options
+    modelFilter.innerHTML = '<option value="">Model</option>';
+
+    const models = new Set();
+
+    // Collect models for the selected brand
+    products.forEach(product => {
+      const productBrand = product.getAttribute('data-brand');
+      const productModel = product.getAttribute('data-model');
+
+      if (!brandFilter || productBrand === brandFilter) {
+        models.add(productModel);
+      }
+    });
+
+    // Populate model dropdown
+    models.forEach(model => {
+      const option = document.createElement('option');
+      option.value = model;
+      option.textContent = model;
+      modelFilter.appendChild(option);
+    });
+
+    // Apply filters after updating the model dropdown
+    filterProducts();
+  }
+
+  // 🐀񓠠Filter products based on brand and model
+  function filterProducts() {
+    const brandFilter = document.getElementById('brand-filter').value;
+    const modelFilter = document.getElementById('model-filter').value;
+    const products = document.querySelectorAll('#product-grid .grid__item');
+
+    let visibleBrandCount = 0;
+    let visibleProductCount = 0;
+
+    products.forEach(product => {
+      const productBrand = product.getAttribute('data-brand');
+      const productModel = product.getAttribute('data-model');
+
+      let show = true;
+
+      if (brandFilter && productBrand !== brandFilter) {
+        show = false;
+      }
+      if (modelFilter && productModel !== modelFilter) {
+        show = false;
+      }
+
+      product.style.display = show ? 'block' : 'none';
+
+      if (show) {
+        visibleBrandCount++;
+        if (productBrand === brandFilter || brandFilter === '') {
+          visibleProductCount++;
+        }
+      }
+    });
+
+    console.log(`Visible brands: ${visibleBrandCount}`);
+    console.log(`Products for selected brand: ${visibleProductCount}`);
+  }
+
+  // 🔥 Apply the filters as URL query parameters
+  function applyFiltersToURL() {
+    const brandFilter = document.getElementById('brand-filter').value;
+    const modelFilter = document.getElementById('model-filter').value;
+
+    const params = new URLSearchParams(window.location.search);
+
+    if (brandFilter) {
+      params.set('brand', brandFilter);
+    } else {
+      params.delete('brand');
+    }
+
+    if (modelFilter) {
+      params.set('model', modelFilter);
+    } else {
+      params.delete('model');
+    }
+
+    const newUrl = `${window.location.pathname}?${params.toString()}`;
+    window.history.pushState({}, '', newUrl);
+  }
+
+  // 🔥 Initialize filters based on URL params
+  function initializeFiltersFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    const brand = params.get('brand');
+    const model = params.get('model');
+
+    if (brand) {
+      document.getElementById('brand-filter').value = brand;
+    }
+
+    updateModelFilter();
+
+    if (model) {
+      document.getElementById('model-filter').value = model;
+    }
+
+    filterProducts();
+  }
+});
+
+
+
+</script> -->
