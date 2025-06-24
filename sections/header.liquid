@@ -143,6 +143,25 @@
   -%}
   <header class="{% if section.settings.menu_type_desktop == 'drawer' %} drawer-menu{% endif %}{% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %}{% if social_links %} header--has-social{% endif %}{% if shop.customer_accounts_enabled %} header--has-account{% endif %}{% if localization_forms %} header--has-localizations{% endif %}">
     <div class="header-main-wrapper page-width">
+    {% if request.path == '/account/login' %}
+  <div class="image-search-wrapper">
+    <a href="/" class="header__heading-link link link--text focus-inset">
+      <div class="header__heading-logo-wrapper">
+        <img src="//epd-parts-sandbox.myshopify.com/cdn/shop/files/Logo.svg?v=1746168103&amp;width=600" 
+             alt="EPD Parts Sandbox" 
+             srcset="//epd-parts-sandbox.myshopify.com/cdn/shop/files/Logo.svg?v=1746168103&amp;width=150 150w, 
+                     //epd-parts-sandbox.myshopify.com/cdn/shop/files/Logo.svg?v=1746168103&amp;width=225 225w, 
+                     //epd-parts-sandbox.myshopify.com/cdn/shop/files/Logo.svg?v=1746168103&amp;width=300 300w" 
+             width="150" height="39.13" loading="eager" 
+             class="header__heading-logo motion-reduce" 
+             sizes="(max-width: 300px) 50vw, 150px">
+      </div>
+    </a>
+    <span class="vertical-seprator"></span>
+  </div>
+{% else %}
+  <!-- Add alternative content or leave empty -->
+
 
 <div class="image-search-wrapper">
       {%- if section.settings.logo_position != 'middle-center' -%}
@@ -475,6 +494,7 @@
         %}
       </div>
     </div>
+      {% endif %}
   </header>
 </{% if section.settings.sticky_header_type != 'none' %}sticky-header{% else %}div{% endif %}>
 
